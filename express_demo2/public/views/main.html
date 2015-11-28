@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Director</th>
+        <th>Genre</th>
+        <th>Option</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="movie in movies">
+        <td>{{movie.title}}</td>
+        <td>{{movie.releaseYear}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.genre}}</td>
+        <td><a class="btn btn-default" href="javascript:void(0)" ng-click="updateMovie(movie)">Update</a></td>
+    </tr>
+    </tbody>
+</table>
