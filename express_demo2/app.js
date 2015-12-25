@@ -27,10 +27,10 @@ mongoose.connection.on('error', function (err) {
     console.log('Mongodb connection opened');
 });
 
-app.use(session({
-    secret: 'express_demo',
-    store: new MongoStore({mongooseConnection: mongoose.connection})
-}));
+// app.use(session({
+//    secret: 'express_demo',
+//    store: new MongoStore({mongooseConnection: mongoose.connection})
+// }));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
