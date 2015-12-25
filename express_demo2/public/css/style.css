@@ -5,6 +5,16 @@
 .title-font {
     font-size: large;
     font-style: italic;
-    font-family: Consolas;
+    font-family: Consolas, sans-serif;
     font-weight: bold;
+}
+
+.float-right {
+    float: right;
+}
+
+.form-center {
+    width:500px;
+    margin: auto auto;
+    margin-top: 10%;
 }

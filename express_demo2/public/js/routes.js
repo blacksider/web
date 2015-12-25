@@ -6,7 +6,18 @@
         $stateProvider
             .state('movie', {
                 abstract: 'true',
-                templateUrl: '/views/menu.html'
+                templateUrl: '/views/menu.html',
+                controller: 'MenuController'
+            })
+            .state('login', {
+                url: '/user/login',
+                controller: 'LoginController',
+                templateUrl: '/views/login.html'
+            })
+            .state('signup', {
+                url: '/user/signup',
+                controller: 'SignUpController',
+                templateUrl: '/views/signup.html'
             })
             .state('movie.main', {
                 url: '/movie',
@@ -17,6 +28,11 @@
                         return MovieService.getAllMovies();
                     }
                 }
+            })
+            .state('movie.add', {
+                url: '/movie/add',
+                controller: 'MovieAddController',
+                templateUrl: '/views/add.html'
             })
             .state('movie.update', {
                 url: '/movie/update',

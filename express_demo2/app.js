@@ -7,7 +7,8 @@ var errorhandler = require('errorhandler');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-var movies = require('./routes/movies');
+var movieRoute = require('./api/routes/movie.route.js');
+var userRoute = require('./api/routes/user.route.js');
 var app = express();
 
 // connect to mongodb
@@ -27,10 +28,11 @@ mongoose.connection.on('error', function (err) {
     console.log('Mongodb connection opened');
 });
 
-// app.use(session({
-//    secret: 'express_demo',
-//    store: new MongoStore({mongooseConnection: mongoose.connection})
-// }));
+app.use(session({
+    secret: 'express_demo',
+    key: 'user',
+    store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -45,7 +47,8 @@ app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // url router
-app.use('/api', movies);
+app.use('/api', movieRoute);
+app.use('/api', userRoute);
 
 // static views
 app.all('/*', function (req, res) {

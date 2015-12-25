@@ -1,0 +1,26 @@
+<div class="form-center">
+    <form role="form" class="form form-horizontal">
+        <div class="form-group">
+            <div class="col-md-2">
+                <label for="username">Username</label>
+            </div>
+            <div class="col-md-6">
+                <input id="username" type="text" class="form-control" ng-model="user.username"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <label for="password">Password</label>
+            </div>
+            <div class="col-md-6">
+                <input id="password" type="password" class="form-control" ng-model="user.password"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <a href="javascript:void(0)" class="btn btn-default" ng-click="signUp()">SignUp</a>
+                <a href="javascript:void(0)" class="btn btn-default" ui-sref="movie.main">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
