@@ -2,7 +2,6 @@ var Movie = require('../models/movie.js');
 
 // get all movies
 exports.list = function (req, res) {
-    console.log(req.session.user);
     Movie.find(function (err, movies) {
         if (err) {
             return res.send(err);
