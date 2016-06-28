@@ -41,3 +41,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/express_demo2/.idea
+/express_demo2/bower_components
+/express_demo2/node_modules
+express_demo2/node_modules/mongoose/node_modules/mongodb/sqlite3

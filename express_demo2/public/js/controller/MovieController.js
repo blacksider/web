@@ -1,6 +1,10 @@
-(function (app) {
+(function () {
     'use strict';
-    app.controller('MovieController', function ($scope, $rootScope, $state, $stateParams, MovieService, SessionStorage) {
+    angular.module('movie')
+        .controller('MovieController', MovieController);
+    MovieController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', 'MovieService', 'SessionStorage'];
+
+    function MovieController($scope, $rootScope, $state, $stateParams, MovieService, SessionStorage) {
         $scope.movie = $stateParams.data;
         if (!$scope.movie) {
             $scope.movie = SessionStorage.get('movie');
@@ -16,8 +20,13 @@
                 $state.go('movie.main');
             });
         };
-    });
-    app.controller('MovieAddController', function ($scope, $state, MovieService) {
+    }
+
+    angular.module('movie')
+        .controller('MovieAddController', MovieAddController);
+    MovieAddController.$inject = ['$scope', '$state', 'MovieService'];
+
+    function MovieAddController($scope, $state, MovieService) {
         $scope.add = function () {
             var promise = MovieService.addMovie($scope.movie);
             promise.then(function () {
@@ -25,5 +34,5 @@
                 $state.go('movie.main');
             });
         };
-    });
-})(angular.module('app'));
+    }
+})();

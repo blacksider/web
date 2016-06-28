@@ -1,9 +1,12 @@
-(function (app) {
+(function () {
     'use strict';
-    app.factory('UserService', function ($http, $q) {
+    angular.module('app')
+        .factory('UserService', UserService);
+    UserService.$inject = ['$http', '$q'];
+    function UserService($http, $q) {
         return {
             login: function (user) {
-                var url = "http://localhost:3000/api/user/login";
+                var url = "http://" + window.location.hostname + ":3000/api/user/login";
                 var deferred = $q.defer();
                 $http.post(url, user).then(
                     function success(respData) {
@@ -17,7 +20,7 @@
                 return deferred.promise;
             },
             signUpUser: function (user) {
-                var url = "http://localhost:3000/api/user/";
+                var url = "http://" + window.location.hostname + ":3000/api/user/";
                 var deferred = $q.defer();
                 $http.post(url, user).then(
                     function success(respData) {
@@ -31,7 +34,7 @@
                 return deferred.promise;
             },
             logout: function () {
-                var url = "http://localhost:3000/api/user/logout";
+                var url = "http://" + window.location.hostname + ":3000/api/user/logout";
                 var deferred = $q.defer();
                 $http.delete(url).then(
                     function success(respData) {
@@ -44,6 +47,6 @@
                 );
                 return deferred.promise;
             }
-        }
-    });
-})(angular.module('app'));
+        };
+    }
+})();

@@ -1,6 +1,11 @@
-(function (app) {
+(function () {
     'use strict';
-    app.controller('MainController', function ($scope, $rootScope, $state, SessionStorage, MovieService, movies) {
+    angular.module('movie')
+        .controller('MainController', MainController);
+
+    MainController.$inject = ['$scope', '$rootScope', '$state', 'SessionStorage', 'MovieService', 'movies'];
+
+    function MainController($scope, $rootScope, $state, SessionStorage, MovieService, movies) {
         $rootScope.title = 'express_demo2';
         $scope.movies = movies;
 
@@ -18,6 +23,6 @@
                     $scope.movies = list;
                 });
             });
-        }
-    });
-})(angular.module('app'));
+        };
+    }
+})();

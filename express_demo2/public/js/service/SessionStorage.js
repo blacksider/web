@@ -1,6 +1,11 @@
 (function (app) {
     'use strict';
-    app.factory('SessionStorage', function ($window) {
+    angular.module('app')
+        .factory('SessionStorage', SessionStorage);
+
+    SessionStorage.$inject = ['$window'];
+
+    function SessionStorage($window) {
         var store = $window.sessionStorage;
         return {
             save: function (key, value) {
@@ -17,7 +22,6 @@
             delete: function (key) {
                 store.removeItem(key);
             }
-        }
-    });
-})
-(angular.module('app'));
+        };
+    }
+})();

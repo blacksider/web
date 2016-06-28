@@ -5,23 +5,35 @@
     <base href='/'/>
     <title ng-bind="title"></title>
 
-    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
-    <link rel='stylesheet' href='bower_components/font-awesome/css/font-awesome.css'/>
+    <!-- build:css css/lib.css -->
+    <!-- bower:css -->
+    <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.css'/>
+    <link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.css'/>
     <link rel='stylesheet' href='css/style.css'/>
+    <!-- endbower -->
+    <!-- endbuild -->
 
 </head>
 <body>
 
 <div ui-view></div>
 
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<!-- build:js js/lib.js -->
+<!-- bower:js -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
+<!-- build:js js/app.js -->
+<!-- inject:js -->
 <script src="js/module.js"></script>
 <script src="js/routes.js"></script>
+<script src="js/movie.routes.js"></script>
 
 <script src="js/controller/MainController.js"></script>
 <script src="js/controller/MenuController.js"></script>
@@ -32,6 +44,8 @@
 <script src="js/service/MovieService.js"></script>
 <script src="js/service/UserService.js"></script>
 <script src="js/service/SessionStorage.js"></script>
+<!-- endinject -->
+<!-- endbuild -->
 
 </body>
 </html>
