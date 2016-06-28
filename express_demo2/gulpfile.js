@@ -35,6 +35,7 @@ gulp.task('optimize', function (cb) {
     pump([
         gulp.src("./public/index.html"),
         $.useref({searchPath: './public'}),
+        $.if('*.js', $.ngAnnotate()),
         $.if('*.js', $.uglify()),
         $.if('*.css', $.cleanCss()),
         gulp.dest('./build/src')
